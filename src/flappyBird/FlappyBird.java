@@ -1,5 +1,7 @@
 package flappyBird;
 
+import java.awt.Graphics;
+
 import javax.swing.JFrame;
 
 public class FlappyBird {
@@ -18,11 +20,17 @@ public class FlappyBird {
 		jframe.setVisible(true);
 	}//end Constructor
 	
+	public void repaint(Graphics g) {
+		
+	}
+	
 	public static void main(String[]args){
 		
 		flappyBird =new FlappyBird();
 		
 	}
+
+
 
 }
 
