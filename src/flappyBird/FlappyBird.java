@@ -7,13 +7,17 @@ import javax.swing.JFrame;
 public class FlappyBird {
 
 	public static FlappyBird flappyBird;
-	 public final int WIDTH = 800, HEIGHT = 800;
 	
+	public final int WIDTH = 800, HEIGHT = 800;
+	
+	public Renderer renderer;
 	
 	public FlappyBird(){
 		
 		JFrame jframe = new JFrame(); 
+		renderer = new Renderer();
 		
+		jframe.add(renderer);
 		jframe.setResizable(false);
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jframe.setSize(WIDTH,HEIGHT);
