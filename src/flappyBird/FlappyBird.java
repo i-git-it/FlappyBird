@@ -153,7 +153,7 @@ public class FlappyBird implements ActionListener, MouseListener {
 		
 		for (Rectangle column : columns )
 		{
-			if(bird.x + bird.width / 2 > column.x + column.width / 2 - 10 && bird.x + bird.width / 2 < column.x + column.width / 2 +10){
+			if(column.y== 0 && bird.x + bird.width / 2 > column.x + column.width / 2 - 10 && bird.x + bird.width / 2 < column.x + column.width / 2 +10){
 				score++;
 			}
 			
@@ -163,7 +163,18 @@ public class FlappyBird implements ActionListener, MouseListener {
 
 				gameOver = true;
 				
-				bird.x = column.x - bird.width;
+				if(bird.x <= column.x)
+				{
+					bird.x = column.x - bird.width;
+				}else{
+					if (column.y != 0 ){
+						bird.y = column.y - bird.height;
+					}else if (bird.y < column.height){
+						bird.y = column.height;
+					}
+				}
+				
+		
 			}
 			
 			if (bird.y > HEIGHT - 120 || bird.y <0)
@@ -218,7 +229,7 @@ public class FlappyBird implements ActionListener, MouseListener {
 		
 		if(!gameOver && started)
 		{
-			g.drawString(String.valueOf(score/2), WIDTH / 2 - 25, 100);
+			g.drawString(String.valueOf(score), WIDTH / 2 - 25, 100);
 		}
 	}
 	
